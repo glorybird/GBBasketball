@@ -67,15 +67,17 @@
     
     // 加摩擦力
     UIDynamicItemBehavior* item = [[UIDynamicItemBehavior alloc] initWithItems:@[self.ball]];
-    item.elasticity = .9f;
+    item.elasticity = 1.f;
+    item.friction = .1f;
+    item.allowsRotation = YES;
     [self.animator addBehavior:item];
     
     // 加边界
     UICollisionBehavior* collision = [[UICollisionBehavior alloc] initWithItems:@[self.ball]];
-    [collision addBoundaryWithIdentifier:@"left" fromPoint:CGPointMake(0, -1000) toPoint:CGPointMake(0, [UIScreen mainScreen].bounds.size.height)];
+    [collision addBoundaryWithIdentifier:@"left" fromPoint:CGPointMake(0, -2000) toPoint:CGPointMake(0, [UIScreen mainScreen].bounds.size.height)];
     [collision addBoundaryWithIdentifier:@"bottom" fromPoint:CGPointMake(0, [UIScreen mainScreen].bounds.size.height) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    [collision addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -1000)];
-    [collision addBoundaryWithIdentifier:@"top" fromPoint:CGPointMake(0, -1000) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -1000)];
+    [collision addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -2000)];
+    [collision addBoundaryWithIdentifier:@"top" fromPoint:CGPointMake(0, -2000) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -2000)];
     [self.animator addBehavior:collision];
 }
 

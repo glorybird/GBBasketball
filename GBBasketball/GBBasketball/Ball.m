@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:CGRectMake(point.x, point.y, [Ball size], [Ball size])];
     if (self) {
-        
+        self.image = [UIImage imageNamed:@"ball"];
     }
     return self;
 }
@@ -28,6 +28,5 @@
 {
     return UIDynamicItemCollisionBoundsTypeEllipse;
 }
-
 
 @end

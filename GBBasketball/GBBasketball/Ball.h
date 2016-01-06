@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Ball : UIView
+@interface Ball : UIImageView <UIDynamicItem>
 
 - (instancetype)initWithPoint:(CGPoint)point;
 
