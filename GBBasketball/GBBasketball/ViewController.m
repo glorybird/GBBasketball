@@ -15,7 +15,7 @@
 @property (nonatomic) UIDynamicAnimator* animator;
 @property (nonatomic) Ball* ball;
 @property (nonatomic) CMMotionManager * motionManager;
-@property (nonatomic) UIPushBehavior* ballPushBehavior;
+@property (nonatomic) UIPushBehavior* ballUpPushBehavior;
 @property (nonatomic) UIGravityBehavior* gravity;
 
 @end
@@ -38,11 +38,18 @@
     self.motionManager.accelerometerUpdateInterval = 1.0f/10.f;
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
         // NSLog(@"x: %f, y: %f, z: %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y, accelerometerData.acceleration.z);
+        
+        // 根据偏移调整重力
         float c = atanf(fabs(accelerometerData.acceleration.y)/fabs(accelerometerData.acceleration.x));
         if (accelerometerData.acceleration.x < 0) {
             c = M_PI - c;
         }
         self.gravity.angle = c;
+        
+        // 摇一摇
+        if (fabs(accelerometerData.acceleration.x)>2.0 || fabs(accelerometerData.acceleration.y)>2.0 || fabs(accelerometerData.acceleration.z) >2.0 ) {
+            [self pushUp:nil];
+        }
     }];
 }
 
@@ -55,21 +62,30 @@
     
     // 加重力
     self.gravity = [[UIGravityBehavior alloc] initWithItems:@[self.ball]];
+    self.gravity.magnitude = 1.f;
     [self.animator addBehavior:self.gravity];
     
     // 加摩擦力
     UIDynamicItemBehavior* item = [[UIDynamicItemBehavior alloc] initWithItems:@[self.ball]];
-    item.elasticity = 0.f;
-    item.friction = 1.f;
-    item.resistance = 0;
-    item.angularResistance = 0;
+    item.elasticity = .9f;
     [self.animator addBehavior:item];
     
     // 加边界
     UICollisionBehavior* collision = [[UICollisionBehavior alloc] initWithItems:@[self.ball]];
-    [collision setTranslatesReferenceBoundsIntoBoundary:YES];
+    [collision addBoundaryWithIdentifier:@"left" fromPoint:CGPointMake(0, -1000) toPoint:CGPointMake(0, [UIScreen mainScreen].bounds.size.height)];
+    [collision addBoundaryWithIdentifier:@"bottom" fromPoint:CGPointMake(0, [UIScreen mainScreen].bounds.size.height) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [collision addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -1000)];
+    [collision addBoundaryWithIdentifier:@"top" fromPoint:CGPointMake(0, -1000) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -1000)];
     [self.animator addBehavior:collision];
 }
+
+- (IBAction)pushUp:(id)sender {
+    // 加上升力
+    self.ballUpPushBehavior = [[UIPushBehavior alloc] initWithItems:@[self.ball] mode:UIPushBehaviorModeInstantaneous];
+    [self.ballUpPushBehavior setAngle:-M_PI/2 magnitude:.8f];
+    [self.animator addBehavior:self.ballUpPushBehavior];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

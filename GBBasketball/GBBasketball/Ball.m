@@ -21,7 +21,7 @@
 
 + (CGFloat)size
 {
-    return 20.f;
+    return 40.f;
 }
 
 - (UIDynamicItemCollisionBoundsType)collisionBoundsType
