@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B80097A1C3E94A30023F281 /* Backboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8009791C3E94A30023F281 /* Backboard.m */; };
 		E3C5F05D1C3D5F5F0050852B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5F05C1C3D5F5F0050852B /* main.m */; };
 		E3C5F0601C3D5F5F0050852B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5F05F1C3D5F5F0050852B /* AppDelegate.m */; };
 		E3C5F0631C3D5F5F0050852B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C5F0621C3D5F5F0050852B /* ViewController.m */; };
@@ -19,8 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B8009781C3E94A30023F281 /* Backboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backboard.h; sourceTree = "<group>"; };
-		0B8009791C3E94A30023F281 /* Backboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Backboard.m; sourceTree = "<group>"; };
 		E3C5F0581C3D5F5F0050852B /* GBBasketball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBBasketball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C5F05C1C3D5F5F0050852B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3C5F05E1C3D5F5F0050852B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,8 +76,6 @@
 				E3C5F05B1C3D5F5F0050852B /* Supporting Files */,
 				E3C5F0721C3D5FDE0050852B /* Ball.h */,
 				E3C5F0731C3D5FDE0050852B /* Ball.m */,
-				0B8009781C3E94A30023F281 /* Backboard.h */,
-				0B8009791C3E94A30023F281 /* Backboard.m */,
 			);
 			path = GBBasketball;
 			sourceTree = "<group>";
@@ -166,7 +161,6 @@
 			files = (
 				E3C5F0741C3D5FDE0050852B /* Ball.m in Sources */,
 				E3C5F0631C3D5F5F0050852B /* ViewController.m in Sources */,
-				0B80097A1C3E94A30023F281 /* Backboard.m in Sources */,
 				E3C5F0601C3D5F5F0050852B /* AppDelegate.m in Sources */,
 				E3C5F05D1C3D5F5F0050852B /* main.m in Sources */,
 			);
@@ -319,7 +313,6 @@
 				E3C5F0711C3D5F5F0050852B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
