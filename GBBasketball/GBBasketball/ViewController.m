@@ -17,6 +17,8 @@
 @property (nonatomic) CMMotionManager * motionManager;
 @property (nonatomic) UIPushBehavior* ballUpPushBehavior;
 @property (nonatomic) UIGravityBehavior* gravity;
+@property (weak, nonatomic) IBOutlet UIView *leftCube;
+@property (weak, nonatomic) IBOutlet UIView *rightCube;
 
 @end
 
@@ -79,6 +81,19 @@
     [collision addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -2000)];
     [collision addBoundaryWithIdentifier:@"top" fromPoint:CGPointMake(0, -2000) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -2000)];
     [self.animator addBehavior:collision];
+    
+    // 加碰撞
+    /*UIAttachmentBehavior* leftFixed = [UIAttachmentBehavior fixedAttachmentWithItem:self.leftCube attachedToItem:self.view attachmentAnchor:self.leftCube.center];
+    UIAttachmentBehavior* rightFixed = [UIAttachmentBehavior fixedAttachmentWithItem:self.leftCube attachedToItem:self.view attachmentAnchor:self.rightCube.center];
+    [self.animator addBehavior:leftFixed];
+    [self.animator addBehavior:rightFixed];*/
+    UIAttachmentBehavior* leftFixed = [[UIAttachmentBehavior alloc] initWithItem:self.leftCube attachedToAnchor:self.leftCube.center];
+    UIAttachmentBehavior* rightFixed = [[UIAttachmentBehavior alloc] initWithItem:self.rightCube attachedToAnchor:self.rightCube.center];
+    [self.animator addBehavior:leftFixed];
+    [self.animator addBehavior:rightFixed];
+    
+    UICollisionBehavior* collisions = [[UICollisionBehavior alloc] initWithItems:@[self.ball, self.leftCube, self.rightCube]];
+    [self.animator addBehavior:collisions];
 }
 
 - (IBAction)pushUp:(id)sender {

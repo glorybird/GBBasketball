@@ -29,16 +29,53 @@
                                     <action selector="pushUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nN6-Je-0qx"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruC-Jr-HXt" userLabel="left">
+                                <rect key="frame" x="297" y="237" width="17" height="7"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="7" id="KUb-N2-mAE"/>
+                                    <constraint firstAttribute="width" constant="17" id="eHi-6v-Cow"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qj2-fw-gSJ" userLabel="right">
+                                <rect key="frame" x="367" y="237" width="17" height="7"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="Ej0-lf-gW7"/>
+                                    <constraint firstAttribute="height" constant="7" id="NTA-RZ-wSw"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="201392191050" translatesAutoresizingMaskIntoConstraints="NO" id="F4y-Ho-lwN">
+                                <rect key="frame" x="186" y="97" width="318" height="178"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="178" id="DC7-0l-ESu"/>
+                                    <constraint firstAttribute="width" constant="318" id="WMu-65-ezt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ruC-Jr-HXt" firstAttribute="leading" secondItem="F4y-Ho-lwN" secondAttribute="leading" constant="111" id="9ew-Ha-ZVG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F4y-Ho-lwN" secondAttribute="trailing" constant="76" id="IpR-cw-OAU"/>
+                            <constraint firstItem="Qj2-fw-gSJ" firstAttribute="trailing" secondItem="F4y-Ho-lwN" secondAttribute="trailing" constant="-120" id="N4s-R9-evf"/>
                             <constraint firstItem="Mjb-HT-dbL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="NpQ-RS-X4M"/>
+                            <constraint firstItem="ruC-Jr-HXt" firstAttribute="bottom" secondItem="F4y-Ho-lwN" secondAttribute="bottom" constant="-31" id="ONO-uV-gAk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mjb-HT-dbL" secondAttribute="bottom" constant="20" id="TiK-oU-YCr"/>
+                            <constraint firstItem="F4y-Ho-lwN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="77" id="iCW-4h-eU8"/>
+                            <constraint firstItem="Qj2-fw-gSJ" firstAttribute="bottom" secondItem="F4y-Ho-lwN" secondAttribute="bottom" constant="-31" id="tr6-5E-K4f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leftCube" destination="ruC-Jr-HXt" id="gK6-ay-LtU"/>
+                        <outlet property="rightCube" destination="Qj2-fw-gSJ" id="WVj-2K-bro"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="416" y="308"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="201392191050" width="400" height="300"/>
+    </resources>
 </document>
