@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 #import "Ball.h"
+#import "Backboard.h"
 #import <CoreMotion/CoreMotion.h>
 
 @interface ViewController ()
 
 @property (nonatomic) UIDynamicAnimator* animator;
 @property (nonatomic) Ball* ball;
+@property (nonatomic) Backboard* backboard;
 @property (nonatomic) CMMotionManager * motionManager;
 @property (nonatomic) UIPushBehavior* ballUpPushBehavior;
 @property (nonatomic) UIGravityBehavior* gravity;
@@ -29,6 +31,9 @@
     
     // 安装球
     [self setUpBall];
+    
+    // 安装篮板
+    [self setUpBackboard];
     
     // 初始化加速器
     self.motionManager = [[CMMotionManager alloc] init];
@@ -56,6 +61,7 @@
 - (void)setUpBall
 {
     self.ball = [[Ball alloc] initWithPoint:CGPointMake(50, [UIScreen mainScreen].bounds.size.height - [Ball size])];
+    self.ball.hidden = YES;
     [self.ball setBackgroundColor:[UIColor blueColor]];
     self.ball.layer.cornerRadius = [Ball size]/2;
     [self.view addSubview:self.ball];
@@ -63,6 +69,9 @@
     // 加重力
     self.gravity = [[UIGravityBehavior alloc] initWithItems:@[self.ball]];
     self.gravity.magnitude = 1.f;
+    self.gravity.action = ^() {
+        NSLog(@"1");
+    };
     [self.animator addBehavior:self.gravity];
     
     // 加摩擦力
@@ -79,6 +88,13 @@
     [collision addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -2000)];
     [collision addBoundaryWithIdentifier:@"top" fromPoint:CGPointMake(0, -2000) toPoint:CGPointMake([UIScreen mainScreen].bounds.size.width, -2000)];
     [self.animator addBehavior:collision];
+}
+
+- (void)setUpBackboard
+{
+    self.backboard = [[Backboard alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+    [self.backboard setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:self.backboard];
 }
 
 - (IBAction)pushUp:(id)sender {
