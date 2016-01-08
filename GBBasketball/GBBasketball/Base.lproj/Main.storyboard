@@ -53,25 +53,25 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Snip20160109_12" translatesAutoresizingMaskIntoConstraints="NO" id="OtO-Ua-029">
-                                <rect key="frame" x="300" y="242" width="84" height="7"/>
+                                <rect key="frame" x="299" y="242" width="82" height="7"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="2SV-qK-WrY"/>
+                                    <constraint firstAttribute="height" constant="7" id="irq-eJ-kok"/>
+                                    <constraint firstAttribute="width" constant="82" id="lfG-Hs-XwZ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OtO-Ua-029" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="222" id="4ev-zQ-kwc"/>
                             <constraint firstItem="ruC-Jr-HXt" firstAttribute="leading" secondItem="F4y-Ho-lwN" secondAttribute="leading" constant="111" id="9ew-Ha-ZVG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F4y-Ho-lwN" secondAttribute="trailing" constant="76" id="IpR-cw-OAU"/>
                             <constraint firstItem="Qj2-fw-gSJ" firstAttribute="trailing" secondItem="F4y-Ho-lwN" secondAttribute="trailing" constant="-120" id="N4s-R9-evf"/>
                             <constraint firstItem="Mjb-HT-dbL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="NpQ-RS-X4M"/>
                             <constraint firstItem="ruC-Jr-HXt" firstAttribute="bottom" secondItem="F4y-Ho-lwN" secondAttribute="bottom" constant="-31" id="ONO-uV-gAk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OtO-Ua-029" secondAttribute="trailing" constant="199" id="QGu-Lm-rqg"/>
+                            <constraint firstItem="OtO-Ua-029" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="222" id="Sbe-U9-TIR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mjb-HT-dbL" secondAttribute="bottom" constant="20" id="TiK-oU-YCr"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OtO-Ua-029" secondAttribute="bottom" constant="351" id="cAm-8p-Xgv"/>
                             <constraint firstItem="F4y-Ho-lwN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="77" id="iCW-4h-eU8"/>
                             <constraint firstItem="Qj2-fw-gSJ" firstAttribute="bottom" secondItem="F4y-Ho-lwN" secondAttribute="bottom" constant="-31" id="tr6-5E-K4f"/>
-                            <constraint firstAttribute="trailing" secondItem="OtO-Ua-029" secondAttribute="trailing" constant="216" id="zgD-1w-Bj3"/>
                         </constraints>
                     </view>
                     <connections>
