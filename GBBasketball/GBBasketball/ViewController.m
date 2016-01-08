@@ -19,6 +19,7 @@
 @property (nonatomic) UIGravityBehavior* gravity;
 @property (weak, nonatomic) IBOutlet UIView *leftCube;
 @property (weak, nonatomic) IBOutlet UIView *rightCube;
+@property (weak, nonatomic) IBOutlet UIImageView *topCover;
 
 @end
 
@@ -53,6 +54,8 @@
             [self pushUp:nil];
         }
     }];
+    
+    [self.view bringSubviewToFront:self.topCover];
 }
 
 - (void)setUpBall
